@@ -11,11 +11,28 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var buttonCount = 0
+   // var buttonCount = 0
     @IBOutlet weak var myLabel: UILabel!
    
+    @IBOutlet weak var topTextField: UITextField!
+    
+    @IBOutlet weak var bottomTextField: UITextField!
+    
+    @IBOutlet weak var additionSwitch: UISwitch!
+    
     @IBAction func buttonTapped(_ sender: Any) {
-        buttonCount = buttonCount + 1
+
+        print(topTextField.text!)
+        print(bottomTextField.text!)
+        let addition = additionSwitch.isOn
+        if addition {
+            let sum = Double(topTextField.text!)! + Double(bottomTextField.text!)!
+            myLabel.text = String(sum)
+        } else {
+            let sum = Double(topTextField.text!)! - Double(bottomTextField.text!)!
+        myLabel.text = String(sum)
+        }
+/* buttonCount += 1
         if buttonCount >= 10 {
         view.backgroundColor = UIColor.blue
         
@@ -25,7 +42,7 @@ class ViewController: UIViewController {
             view.backgroundColor = UIColor.yellow
             
             myLabel.text = "Francesca is greater"
-        }
+        } */
     }
     
     override func viewDidLoad() {
